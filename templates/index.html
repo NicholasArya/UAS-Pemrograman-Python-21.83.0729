@@ -1,0 +1,46 @@
+{% include "header.html" %}
+
+<section id="index">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="row">
+          <div class="col-lg-6">
+            <h1>Tempat menjual gundam model kit terpercaya</h1>
+            <h2>Sejak 2017</h2>
+            <a href="{{ url_for('shop') }}">
+              <button class="btn btn-lg btn-secondary" type="button" id="button-addon2">Belanja<br>sekarang</button>
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <img src="../static/img/eclipse.jpeg">
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row">
+          <div class="col-lg-6">
+            <img src="../static/img/age2.jpg">
+          </div>
+          <div class="col-lg-6">
+            <h1>Menjual aneka macam gundam</h1>
+            <h2>Apapun ada</h2>
+            <a href="{{ url_for('shop') }}">
+              <button class="btn btn-lg btn-secondary" type="button" id="button-addon3">Belanja<br>sekarang</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+{% include "footer.html" %}

@@ -1,0 +1,62 @@
+{% include "header.html" %}
+
+<div id="item">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{{ item.img1 }}">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ item.img2 }}">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card" style="width: 24rem;">
+          <div class="card-body">
+            <h1 class="card-title">{{ item.brand }}</h1>
+            <h1 class="card-title">{{ item.model }}</h1>
+            <h2 class="card-title">Rp {{ item.harga }}</h2>
+            {% if is_user_logged %}
+              <form method="POST" action="{{ url_for('item', item_id=item.id) }}" novalidate>
+                {{ add.csrf_token }}
+                {{ add.add (class="btn btn-primary form-btn") }}
+              </form>
+            {% else %}
+              <a href="{{ url_for('log_in') }}" class="btn btn-lg btn-primary">log in</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            Deskripsi
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+          <div class="accordion-body">
+            {{ item.desc }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include "footer.html" %}
